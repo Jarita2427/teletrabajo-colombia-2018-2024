@@ -1,33 +1,14 @@
-```markdown
-# Teletrabajo y salarios reales en Colombia (2018–2025)
+**Resumen del proyecto**
 
-Este repositorio contiene el proyecto de investigación del semillero sobre el **impacto del teletrabajo en los salarios reales en Colombia durante el periodo 2018–2025**.  
+El proyecto analiza cómo la **teletrabajabilidad ocupacional** se relaciona con las **horas trabajadas** y los **tiempos de cuidado no remunerado** de las mujeres en Colombia entre 2018 y 2024. La idea central es distinguir entre ocupaciones con **alta** y **baja posibilidad de teletrabajo** y estudiar cómo estas se ven afectadas por dos grandes cambios recientes: la pandemia de COVID-19 y la entrada en vigor de la **Ley 2191 de 2022** sobre derecho a la desconexión laboral.
 
-El objetivo es evaluar, a partir de microdatos de la **GEIH–DANE** y el **IPC**, si la **teletrabajabilidad** de las ocupaciones está asociada con premios o penalidades en los salarios reales, y cómo varía por sector, género y región.
+Para ello se utilizarán microdatos de la **Gran Encuesta Integrada de Hogares (GEIH)** del DANE (2018–2024), a partir de los cuales se construirá un panel de mujeres ocupadas con información sobre ocupación, horas trabajadas, características sociodemográficas y laborales. Sobre este panel se asignará un **índice de teletrabajabilidad por ocupación**, adaptado de la literatura internacional, y se implementará una estrategia de **diferencias en diferencias (DiD)** para estimar el efecto diferencial de la teletrabajabilidad antes y después de la pandemia y de la Ley 2191.
 
-##Estructura del repositorio
+Complementariamente, se emplearán los microdatos de la **Encuesta Nacional de Uso del Tiempo (ENUT)** para estudiar la asociación entre teletrabajabilidad y **tiempos de cuidado y trabajo doméstico no remunerado** en las mujeres, a través de análisis descriptivos y modelos de regresión. El objetivo general es aportar evidencia empírica sobre las tensiones entre flexibilidad laboral, carga de trabajo y distribución del cuidado, en un contexto de cambios acelerados en la organización del trabajo y la regulación de la desconexión laboral en Colombia.
 
-teletrabajo-colombia-2018-2025/
-├── data_raw/ # Microdatos originales (NO versionados, ignorados en .gitignore)
-├── data_int/ # Datos procesados (ej. parquet con salarios reales, índice tele)
-├── output/ # Tablas, gráficos y resultados exportados
-├── r/ # Scripts R organizados por etapas
-│ ├── 00_globals.R
-│ ├── 01_clean_geih.R
-│ ├── 02_tele_index.R
-│ ├── 03_descriptivos.R
-│ └── 04_did_models.R
-├── docs/ # Notas metodológicas, bitácora, referencias
-├── .gitignore
-├── renv.lock # Estado de librerías para reproducibilidad
-├── renv/ # Carpeta local de renv
-└── teletrabajo-colombia-2018-2025.Rproj
----
+**Salida esperada para el semillero**
 
-
-````
-
----
+Un conjunto de scripts reproducibles en R (con control de versiones en Git), un dataset limpio de GEIH y ENUT con variables de teletrabajabilidad, varias tablas y gráficos de resultados, y un documento corto con la síntesis de la metodología y los principales hallazgos empíricos.
 
 ##  Metodología
 
@@ -37,23 +18,6 @@ teletrabajo-colombia-2018-2025/
 - **Controles:** edad, educación, género, formalidad.  
 - **Efectos fijos:** ocupación/sector, mes-año, región.  
 - **Robustez:** índice continuo, submuestras urbanas, cuantiles salariales, event study.
-
----
-
-##  Reproducibilidad
-
-Este proyecto usa [`renv`](https://rstudio.github.io/renv/) para aislar librerías.  
-
-- Para instalar el entorno en otro PC:
-  ```r
-  renv::restore()
-````
-
-* Para registrar cambios de paquetes:
-
-  ```r
-  renv::snapshot()
-  ```
 
 ---
 
