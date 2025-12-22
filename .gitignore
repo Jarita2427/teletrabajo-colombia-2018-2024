@@ -16,7 +16,7 @@ data_out/*.fst
 data_out/*.parquet
 data_out/*.csv
 
-# Archivos binarios pesados genéricos
+# Archivos binarios pesados genericos
 *.fst
 *.parquet
 
