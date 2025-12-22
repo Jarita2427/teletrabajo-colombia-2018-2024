@@ -9,14 +9,21 @@ renv/library/
 renv/staging/
 .Rprofile
 
-# Datos (nunca a Git)
-data_raw/
-data_int/
-data_out/*.fst
-data_out/*.parquet
-data_out/*.csv
+# --- Datos (nunca a Git) ---
+data_raw/*
+data_int/*
+data_out/*
 
-# Archivos binarios pesados genericos
+!data_raw/.gitkeep
+!data_int/.gitkeep
+!data_out/.gitkeep
+
+# permitir README dentro de esas carpetas
+!data_raw/README.md
+!data_int/README.md
+!data_out/README.md
+
+# --- Binarios pesados genéricos ---
 *.fst
 *.parquet
 
@@ -24,3 +31,4 @@ data_out/*.csv
 *.tmp
 *.log
 .DS_Store
+
