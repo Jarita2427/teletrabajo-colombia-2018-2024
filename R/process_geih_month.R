@@ -167,9 +167,9 @@ process_geih_month <- function(month_dir, anio = NULL, mes = NULL,
   #  - 2020+ (en tu diccionario 2023/2024) es P3271 (sexo al nacer)
   sexo_var <- pick_first_existing(dt, c("P6020", "P3271"))
   if (is.na(sexo_var)) {
-    stop("No encontré variable de sexo (probé P6020 y P3271) en: ", month_dir)
+    warning("Mes sin variable sexo (P6020/P3271): ", month_dir, " -> se omite.")
+    return(NULL)
   }
-  
   # Edad
   edad_var <- pick_first_existing(dt, c("P6040"))
   if (is.na(edad_var)) {
